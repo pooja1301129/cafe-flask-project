@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cafe System</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>☕ Cafe Management System</h1>
+
+    <h3>Menu</h3>
+    <p>Pizza - ₹50</p>
+    <p>Burger - ₹100</p>
+    <p>Salad - ₹30</p>
+    <p>Popcorn - ₹40</p>
+
+    <form action="/bill" method="POST">
+      <input type="text" name="items"
+             placeholder="Enter items: pizza,burger">
+      <button type="submit">Generate Bill</button>
+    </form>
+
+    {% if bill_items %}
+      <h3>Ordered Items:</h3>
+      <ul>
+        {% for item in bill_items %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+
+      <h2>Total Bill: ₹{{ total }}</h2>
+    {% endif %}
+
+  </div>
+
+</body>
+</html>
